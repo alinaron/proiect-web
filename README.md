@@ -13,9 +13,12 @@ Echipa **NothingButSlick**:boom:
 ![Second](https://github.com/alinaron/proiect-web/blob/master/docs/web2.jpg)
 
 ### API REST
-#### GET /account
+```javascript
+GET /account
+```
 Returneaza detaliile contului TMDB.
-Response example:
+###### Response example:
+```json
 {
   "avatar": {
     "gravatar": {
@@ -29,17 +32,24 @@ Response example:
   "include_adult": true,
   "username": "travisbell"
 }
-#### GET /keyword/{keyword_id}
+```
+```javascript
+GET /keyword/{keyword_id}
+```
 Cauta in TMDB dupa un keyword.
-Response example:
+###### Response example:
+```json
 {
   "id": 3417,
   "name": "wormhole"
 }
-
-#### GET /movie/{movie_id}
+```
+```javascript
+GET /movie/{movie_id}
+```
 Returneaza informatiile de baza despre un film.
-Response example: 
+###### Response example: 
+```json
 {
   "adult": false,
   "backdrop_path": "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
@@ -125,9 +135,13 @@ Response example:
   "vote_average": 7.8,
   "vote_count": 3439
 }
-
-#### GET /trending/{media_type}/{time_window}
+```
+```javascript
+GET /trending/{media_type}/{time_window}
+```
 Returneaza item-urile trending din ultima zi sau saptamana.
+###### Response example
+```json
 {
   "page": 1,
   "results": [
@@ -532,10 +546,13 @@ Returneaza item-urile trending din ultima zi sau saptamana.
   "total_pages": 792,
   "total_results": 15831
 }
-
-# GET /genre/movie/list
+```
+```javascript
+GET /genre/movie/list
+```
 Returneaza din lista oficiala de genuri de filme.
-Response example:
+###### Response example:
+```json
 {
   "genres": [
     {
@@ -544,10 +561,13 @@ Response example:
     }
   ]
 }
-
-#### GET /find/{external_id}
+```
+```javascript
+GET /find/{external_id}
+```
 Metoda find face mai usoara afisarea de obiecte din baza de date dupa un id extern, spre exemplu un id folosit de IMDb.
-Response example:
+###### Response example:
+```json
 {
   "movie_results": [
     {
@@ -574,10 +594,13 @@ Response example:
   "tv_episode_results": [],
   "tv_season_results": []
 }
-
-#### GET /search/movie
-Cauta filme.
-Response example:
+```
+```javascript
+GET /search/movie
+```
+Cauta filme dupa nume.
+###### Response example:
+```json
 {
   "page": 1,
   "results": [
@@ -850,10 +873,13 @@ Response example:
   "total_results": 14,
   "total_pages": 1
 }
-
-#### GET /search/tv
-Cauta seriale.
-Response example:
+```
+```javascript
+GET /search/tv
+```
+Cauta seriale dupa nume.
+###### Response example:
+```json
 {
   "page": 1,
   "results": [
@@ -882,10 +908,13 @@ Response example:
   "total_results": 1,
   "total_pages": 1
 }
-
-#### GET /search/multi
+```
+```javascript
+GET /search/multi
+```
 Cauta multiple modele intr-un singur request(TV, movies, people).
-Response example:
+###### Response example:
+```json
 {
   "page": 1,
   "total_results": 1,
@@ -913,10 +942,13 @@ Response example:
     }
   ]
 }
-
-#### GET /tv/{tv_id}
+```
+```javascript
+GET /tv/{tv_id}
+```
 Returneaza detaliile unui serial cautat dupa id.
-Response example:
+###### Response example:
+```json
 {
   "backdrop_path": "/gX8SYlnL9ZznfZwEH4KJUePBFUM.jpg",
   "created_by": [
@@ -1106,10 +1138,13 @@ Response example:
   "vote_average": 8.2,
   "vote_count": 4682
 }
-
-#### GET /tv/{tv_id}/season/{season_number}
+```
+```javascript
+GET /tv/{tv_id}/season/{season_number}
+```
 Returneaza detaliile unui sezon al unui serial cautat dupa id.
-Response example:
+###### Response example:
+```json
 {
   "_id": "593b214092514105b7001a3e",
   "air_date": "2006-06-12",
@@ -1316,10 +1351,13 @@ Response example:
   "poster_path": null,
   "season_number": 1
 }
-
-#### GET /collection/{collection_id}
+```
+```javascript
+GET /collection/{collection_id}
+```
 Returneaza detaliile unei colectii cautate prin id.
-Response example:
+###### Response example:
+```json
 {
   "id": 10,
   "name": "Star Wars Collection",
@@ -1347,7 +1385,7 @@ Response example:
     }
   ]
 }
-
+```
 
 
 #### Task-uri:
