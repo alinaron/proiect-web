@@ -13,7 +13,7 @@ Echipa **NothingButSlick**:boom:
 ![Second](https://github.com/alinaron/proiect-web/blob/master/docs/web2.jpg)
 
 ### API REST
-# GET /account
+#### GET /account
 Returneaza detaliile contului TMDB.
 Response example:
 {
@@ -29,7 +29,7 @@ Response example:
   "include_adult": true,
   "username": "travisbell"
 }
-# GET /keyword/{keyword_id}
+#### GET /keyword/{keyword_id}
 Cauta in TMDB dupa un keyword.
 Response example:
 {
@@ -37,7 +37,7 @@ Response example:
   "name": "wormhole"
 }
 
-# GET /movie/{movie_id}
+#### GET /movie/{movie_id}
 Returneaza informatiile de baza despre un film.
 Response example: 
 {
@@ -126,7 +126,7 @@ Response example:
   "vote_count": 3439
 }
 
-# GET /trending/{media_type}/{time_window}
+#### GET /trending/{media_type}/{time_window}
 Returneaza item-urile trending din ultima zi sau saptamana.
 {
   "page": 1,
@@ -545,7 +545,7 @@ Response example:
   ]
 }
 
-# GET /find/{external_id}
+#### GET /find/{external_id}
 Metoda find face mai usoara afisarea de obiecte din baza de date dupa un id extern, spre exemplu un id folosit de IMDb.
 Response example:
 {
@@ -575,7 +575,7 @@ Response example:
   "tv_season_results": []
 }
 
-# GET /search/movie
+#### GET /search/movie
 Cauta filme.
 Response example:
 {
@@ -851,7 +851,7 @@ Response example:
   "total_pages": 1
 }
 
-# GET /search/tv
+#### GET /search/tv
 Cauta seriale.
 Response example:
 {
@@ -883,7 +883,7 @@ Response example:
   "total_pages": 1
 }
 
-# GET /search/multi
+#### GET /search/multi
 Cauta multiple modele intr-un singur request(TV, movies, people).
 Response example:
 {
@@ -914,7 +914,7 @@ Response example:
   ]
 }
 
-# GET /tv/{tv_id}
+#### GET /tv/{tv_id}
 Returneaza detaliile unui serial cautat dupa id.
 Response example:
 {
@@ -1107,7 +1107,7 @@ Response example:
   "vote_count": 4682
 }
 
-# GET /tv/{tv_id}/season/{season_number}
+#### GET /tv/{tv_id}/season/{season_number}
 Returneaza detaliile unui sezon al unui serial cautat dupa id.
 Response example:
 {
@@ -1317,7 +1317,7 @@ Response example:
   "season_number": 1
 }
 
-# GET /collection/{collection_id}
+#### GET /collection/{collection_id}
 Returneaza detaliile unei colectii cautate prin id.
 Response example:
 {
