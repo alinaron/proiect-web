@@ -1,0 +1,7 @@
+last_episode_to_air_id: {
+        type: Sequelize.INTEGER,
+        references: {
+            model: Episodes,
+            key: 'id'
+        }
+    }

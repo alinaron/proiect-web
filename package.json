@@ -1,0 +1,30 @@
+{
+  "name": "proiect",
+  "version": "1.0.0",
+  "description": "proiect tehnologii web",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinaron/proiect-web.git"
+  },
+  "keywords": [
+    "proiect",
+    "web"
+  ],
+  "author": "NothingButSlick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alinaron/proiect-web/issues"
+  },
+  "homepage": "https://github.com/alinaron/proiect-web#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4"
+  }
+}
