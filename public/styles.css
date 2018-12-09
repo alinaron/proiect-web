@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/pastel-repeating-background-5.jpg");
+    background-repeat: repeat;
+    background-position: center;
+    max-width: 1200px;
+    margin:100px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form > input[type="search"] {
+    width: 50%;
+    height: 40px;
+    padding: 3px;
+    margin: 12px;
+}
+
+.search_button {
+    width: 10%;
+    height: 30px;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: rgb(14, 168, 66);
+    border-radius: 20px;
+    box-shadow: 0 2px 0 #777;
+}
+
+.containerTrending {
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    display: flex;
+    border-color: black;
+    border-radius: 5px;
+    background-color: rgb(160, 7, 77);
+    max-width:300 px;
+}

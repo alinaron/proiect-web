@@ -4,26 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
   <title>Manager filme</title>
 </head>
 <body>
     <header>
-        <h1>Your favorite movie manager</h1>
+        <h1>Your movie manager</h1>
     </header>
-    <main>
-        <div class="">
-            
-        </div>
+    <div class="flexview" id="flexview">
+        <main>
+            <form action="">
+                <button type="button" class="hbutton">TV Shows</button>
+                <button type="button" class="hbutton">Movies</button>
+                <button type="button" class="hbutton">Genres</button>
+                <button type="button" class="hbutton">Favorites</button>
+            </form>
+            <h3>Trending</h3>
+            <div class="containerTrending">
+                <h6>Series</h6>
+                <div class="containerSeries" id="containerSeries">
+                    
+                </div>
+                <h6>Movies</h6>
+                <div class = "containerMovies" id="containerMovies">
+                    
+                </div>
+            </div>
+        </main>
         
-    </main>
-    
-    <aside>
-        <form action="">
-            <input type="search" name="searchInput" placeholder="Movies, series">
-            <button type="button">Search movies</button><br>
-            <input type="radio" name="type" value="movie" checked>Movie<br>
-            <input type="radio" name="type" value="series">TV Series<br>
-        </form>
-    </aside>
+        <aside>
+            <form action="">
+                <input type="search" name="searchInput" class="searchInput" placeholder="Movies, series">
+                <button type="button" class="search_button">Search movies</button><br>
+                <input type="radio" name="type" value="movie" class="rb" checked>Movie<br>
+                <input type="radio" name="type" value="series" class="rb">TV Series<br>
+            </form>
+        </aside>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

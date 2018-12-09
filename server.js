@@ -58,7 +58,7 @@ const Episodes = sequelize.define('episodes', {
     },
     name: Sequelize.STRING,
     overview: Sequelize.TEXT,
-    season_number: Sequelize.INTEGER,
+    episode_number: Sequelize.INTEGER,
     vote_average: Sequelize.FLOAT,
     vote_count: Sequelize.INTEGER
 });
@@ -369,5 +369,268 @@ app.delete('/series/:sid/seasons/:no', (request, response) => {
         response.status(500).send('Database error');
     })
 })
+
+app.get('/series/:sid/seasons/:sno/episodes', (request, response) => {
+    Series.findById(request.params.sid).then((series) => {
+        if(series) {
+            Seasons.findOne({
+                where: {
+                    season_number: request.params.sno,
+                    seriesId: series.id
+                }
+            }).then((season)=> {
+                if(season) {
+                    Episodes.findAll({
+                        where: {
+                            seasonId: season.id
+                        }
+                    }).then((results) => {
+                        response.status(200).json(results);
+                    }).catch((err) => {
+                        console.log(err);
+                        response.status(500).send('Resource not found');
+                    })
+                } else {
+                    response.status(404).send('Resource not found');
+                }
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Resource not found');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+})
+
+app.get('/series/:sid/seasons/:sno/episodes/:eno', (request, response) => {
+    Series.findById(request.params.sid).then((series) => {
+        if(series) {
+            Seasons.findOne({
+                where: {
+                    season_number: request.params.sno,
+                    seriesId: series.id
+                }
+            }).then((season)=> {
+                if(season) {
+                    Episodes.findOne({
+                        where: {
+                            seasonId: season.id,
+                            episode_number: request.params.eno
+                        }
+                    }).then((result) => {
+                        response.status(200).json(result);
+                    }).catch((err) => {
+                        console.log(err);
+                        response.status(500).send('Resource not found');
+                    })
+                } else {
+                    response.status(404).send('Resource not found');
+                }
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Resource not found');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })    
+})
+
+app.post('/series/:sid/seasons/:sno/episodes', (request, response) => {
+    Series.findById(request.params.sid).then((series) => {
+        if(series) {
+            Seasons.findOne({
+                where: {
+                    season_number: request.params.sno,
+                    seriesId: series.id
+                }
+            }).then((season) => {
+                if(season) {
+                    let episode = request.body;
+                    episode.seasonId = season.id;
+                    Episodes.create(episode).then((result) => {
+                        response.status(201).json(result);
+                    })
+                } else {
+                    response.status(404).send('Resource not found');
+                }
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+})
+
+app.put('/series/:sid/seasons/:sno/episodes/:eno', (request, response) => {
+    Series.findById(request.params.sid).then((series) => {
+        if(series) {
+            Seasons.findOne({
+                where: {
+                    season_number: request.params.sno,
+                    seriesId: series.id
+                }
+            }).then((season) =>{
+                if(season) {
+                    Episodes.findOne({
+                        where: {
+                            seasonId: season.id,
+                            episode_number: request.params.eno
+                        }
+                    }).then((episode) => {
+                        if(episode) {
+                            episode.update(request.body).then((result) => {
+                                response.status(201).json(result);
+                            }).catch((err) => {
+                                console.log(err);
+                                response.status(500).send('Database error');
+                            })
+                        } else {
+                            response.status(404).send('Resource not found');
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                        response.status(500).send('Database error');
+                    })
+                } else {
+                    response.status(404).send('Resource not found');
+                }
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+})
+
+app.delete('/series/:sid/seasons/:sno/episodes/:eno', (request, response) => {
+    Series.findById(request.params.sid).then((series) => {
+        if(series) {
+            Seasons.findOne({
+                where: {
+                    season_number: request.params.sno,
+                    seriesId: series.id
+                }
+            }).then((season) =>{
+                if(season) {
+                    Episodes.findOne({
+                        where: {
+                            seasonId: season.id,
+                            episode_number: request.params.eno
+                        }
+                    }).then((episode) => {
+                        if(episode) {
+                            episode.destroy().then((result) => {
+                                response.status(204).send();
+                            }).catch((err) => {
+                                console.log(err);
+                                response.status(500).send('Database error');
+                            })
+                        } else {
+                            response.status(404).send('Resource not found');
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                        response.status(500).send('Database error');
+                    })
+                } else {
+                    response.status(404).send('Resource not found');
+                }
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })    
+})
+
+//APIs for endpoint /genres
+
+app.get('/genres', (request, response) => {
+    Genres.findAll().then((results) => {
+        response.status(200).json(results);
+    })
+});
+
+app.post('/genres', (request, response) => {
+   Genres.create(request.body).then((result) => {
+       response.status(201).json(result);
+   }).catch((err) => {
+       console.log(err);
+       response.status(500).send('Resource not created');
+   })
+});
+
+app.get('/genres/:id', (request, response) => {
+    Genres.findById(request.params.id).then((genre) => {
+        if(genre) {
+            response.status(200).json(genre);
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+});
+
+app.put('/genres/:id', (request, response) => {
+    Genres.findById(request.params.id).then((genre) => {
+        if(genre) {
+            genre.update(request.body).then((result) => {
+                response.status(201).json(result);
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Resource not found');
+    })
+});
+
+app.delete('/genres/:id', (request, response) => {
+    Genres.findById(request.params.id).then((genre) => {
+        if(genre) {
+            genre.destroy().then((result) => {
+                response.status(204).send();
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+})
+
 
 app.listen(8080);
