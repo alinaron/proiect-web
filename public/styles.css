@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: monospace;
+    font-family: sans-serif;
     background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/pastel-repeating-background-5.jpg");
     background-repeat: repeat;
     background-position: center;
@@ -16,9 +16,19 @@ header {
     justify-content: center;
 }
 
+.hbutton {
+    font-family: inherit;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: rgb(160, 7, 77);
+    border-radius: 20px;
+    box-shadow: 0 2px 0 #777;
+}
+
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -35,7 +45,7 @@ form > input[type="search"] {
     color: black;
     padding: 5px 10px;
     text-decoration: none;
-    background-color: rgb(14, 168, 66);
+    background-color: rgb(160, 7, 77);
     border-radius: 20px;
     box-shadow: 0 2px 0 #777;
 }

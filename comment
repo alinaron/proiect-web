@@ -88,3 +88,8 @@ form {
     -webkit-box-direction: normal;
     display: flex
 }
+
+.sticky{
+    position:sticky;
+    top:0;
+}

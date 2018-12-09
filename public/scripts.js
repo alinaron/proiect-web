@@ -2,7 +2,7 @@ const API_KEY = "9d4e4d893f92db6be6b49b2e3961e6de";
 
 (function getTrendingSeries() {
    var responseData = [];
-   axios.get("https://api.themoviedb.org/3/trending/tv/day?api_key=9d4e4d893f92db6be6b49b2e3961e6de")
+   axios.get("https://api.themoviedb.org/3/trending/tv/day?api_key=" + API_KEY)
    .then((response) => {
        responseData = response.data;
        if(responseData.length === 0) {
@@ -15,9 +15,11 @@ const API_KEY = "9d4e4d893f92db6be6b49b2e3961e6de";
    })
 })();
 
+
+
 (function getTrendingMovies() {
    var responseData = [];
-   axios.get("https://api.themoviedb.org/3/trending/movie/day?api_key=9d4e4d893f92db6be6b49b2e3961e6de")
+   axios.get("https://api.themoviedb.org/3/trending/movie/day?api_key=" + API_KEY)
    .then((response) => {
        responseData = response.data;
        if(responseData.length === 0) {
