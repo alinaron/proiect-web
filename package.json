@@ -7,7 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,17 @@
   "bugs": {
     "url": "https://github.com/alinaron/proiect-web/issues"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "homepage": "https://github.com/alinaron/proiect-web#readme",
   "dependencies": {
+    "@material-ui/core": "^3.7.0",
     "axios": "^0.18.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1"
   }
 }

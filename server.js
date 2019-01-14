@@ -107,7 +107,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use('/', express.static('public'));
+app.use('/', express.static('front/build'));
 
 //endpoint creare baze de date
 app.get('/createdb', function(request, response) {
