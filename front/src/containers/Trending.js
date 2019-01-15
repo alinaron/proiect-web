@@ -8,7 +8,7 @@ import Movie from '../components/Movie'
 const API_SERIES_URL = 'https://api.themoviedb.org/3/trending/tv/day?api_key=9d4e4d893f92db6be6b49b2e3961e6de' 
 const API_MOVIES_URL = 'https://api.themoviedb.org/3/trending/movie/day?api_key=9d4e4d893f92db6be6b49b2e3961e6de'
 
-class Flexview extends Component {
+class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,22 +30,16 @@ class Flexview extends Component {
     return (
       <div>
          <main>
-            <form action="">
-                <button type="button" class="hbutton" id="buttonShows">TV Shows</button>
-                <button type="button" class="hbutton" id="buttonMovies">Movies</button>
-                <button type="button" class="hbutton" id="buttonGenres">Genres</button>
-                <button type="button" class="hbutton" id="buttonFavorites">Favorites</button>
-            </form>
             <h3>Trending</h3>
             <div class="containerTrending">
                 <h6>Series</h6>
-                <div class="containerSeries" id="containerSeries">
+                <div>
                     <List>
                         {this.state.trendingSeries.map((series) => <Series profile={series} />)}
                     </List>
                 </div>
                 <h6>Movies</h6>
-                <div class = "containerMovies" id="containerMovies">
+                <div>
                     <List>
                         {this.state.trendingMovies.map((movie) => <Movie profile={movie} />)}
                     </List>
@@ -58,4 +52,4 @@ class Flexview extends Component {
   }
 }
 
-export default Flexview;
+export default Index;

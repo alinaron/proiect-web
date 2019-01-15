@@ -5,7 +5,7 @@ html {
 
 body {
     font-family: sans-serif;
-    background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/pastel-repeating-background-5.jpg");
+    background-image: url("https://previews.123rf.com/images/kritchanut/kritchanut1502/kritchanut150200088/36161539-light-wood-texture-background.jpg");
     background-repeat: repeat;
     background-position: center;
     max-width: 1200px;
@@ -49,7 +49,7 @@ form > input[type="search"] {
     color: white;
     padding: 5px 10px;
     text-decoration: none;
-    background-color: rgb(160, 7, 77);
+    background-color: rgb(162, 220, 162);
     border-radius: 20px;
     box-shadow: 0 2px 0 #777;
 }
@@ -61,6 +61,66 @@ form > input[type="search"] {
     display: flex;
     border-color: black;
     border-radius: 5px;
-    background-color: rgb(160, 7, 77);
+    background-color: rgb(162, 220, 162);
     max-width:300 px;
+}
+h4{
+    color:black;
+    font-family: Calibri;
+    text-align: center;
+}
+#rating{
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+}
+#ratingFavorites{
+    position: absolute;
+    left: 90%;
+    margin-left: -150px;
+}
+.containerMovies {
+    border-radius: 5px;
+    background-color: rgb(142, 166, 212);
+}
+
+.containerSeries {
+    border-radius: 5px;
+    background-color: rgb(159, 216, 193);
+}
+
+.containerFavorites {
+    border-radius: 5px;
+    background-color: rgb(162, 220, 211);
+}
+
+#titluAbout{
+    text-align: center;
+    font-family: sans-serif;
+    color: black;
+}
+
+#numeEchipa{
+    text-align: center;
+    font-family: fantasy;
+    color: black;
+}
+
+.pAbout{
+    text-align: center;
+    font-family: sans-serif;
+    color: black;
+}
+
+.containerAbout{
+    border-radius: 5px;
+    background-color: rgb(132, 176, 222);
+}
+
+input[type=search] {
+  border: 2px solid ;
+  border-radius: 4px;
+  color : mediumturquoise;
+  padding: 12px 20px;
+  box-sizing: border-box;
 }

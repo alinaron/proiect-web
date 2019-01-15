@@ -28,8 +28,7 @@ const Movies = sequelize.define('movies', {
     tagline: Sequelize.TEXT,
     vote_average: Sequelize.FLOAT,
     vote_count: Sequelize.INTEGER,
-    poster_path: Sequelize.STRING,
-    favorite: Sequelize.BOOLEAN
+    poster_path: Sequelize.STRING
 });
 
 const Series = sequelize.define('series', {
@@ -47,8 +46,17 @@ const Series = sequelize.define('series', {
     poster_path: Sequelize.STRING,
     status: Sequelize.STRING,
     vote_average: Sequelize.FLOAT,
-    vote_count: Sequelize.INTEGER,
-    favorite: Sequelize.BOOLEAN
+    vote_count: Sequelize.INTEGER
+});
+
+const Favorites = sequelize.define('favorites', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
+    name: Sequelize.STRING,
+    poster_path: Sequelize.STRING,
+    vote_average: Sequelize.FLOAT
 });
 
 const Episodes = sequelize.define('episodes', {
@@ -118,6 +126,7 @@ app.get('/createdb', function(request, response) {
     })
 });
 
+
 //API endpoint /movies
 
 app.get('/movies', (request, response) => {
@@ -134,7 +143,6 @@ app.post('/movies', (request, response) => {
        response.status(500).send('Resource not created');
    })
 });
-
 app.get('/movies/:id', (request, response) => {
     Movies.findById(request.params.id).then((movie) => {
         if(movie) {
@@ -170,6 +178,69 @@ app.delete('/movies/:id', (request, response) => {
     Movies.findById(request.params.id).then((movie) => {
         if(movie) {
             movie.destroy().then((result) => {
+                response.status(204).send();
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+})
+
+//API endpoint /favorites
+app.get('/favorites', (request, response) => {
+    Favorites.findAll().then((results) => {
+        response.status(200).json(results);
+    })
+});
+app.post('/favorites', (request, response) => {
+   Favorites.create(request.body).then((result) => {
+       response.status(201).json(result);
+   }).catch((err) => {
+       console.log(err);
+       response.status(500).send('Resource not created');
+   })
+});
+app.get('/favorites/:id', (request, response) => {
+    Favorites.findById(request.params.id).then((favorite) => {
+        if(favorite) {
+            response.status(200).json(favorite);
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Database error');
+    })
+});
+
+app.put('/favorites/:id', (request, response) => {
+    Favorites.findById(request.params.id).then((favorite) => {
+        if(favorite) {
+            favorite.update(request.body).then((result) => {
+                response.status(201).json(result);
+            }).catch((err) => {
+                console.log(err);
+                response.status(500).send('Database error');
+            })
+        } else {
+            response.status(404).send('Resource not found');
+        }
+    }).catch((err) => {
+        console.log(err);
+        response.status(500).send('Resource not found');
+    })
+});
+
+app.delete('/favorites/:id', (request, response) => {
+    Favorites.findById(request.params.id).then((favorite) => {
+        if(favorite) {
+            favorite.destroy().then((result) => {
                 response.status(204).send();
             }).catch((err) => {
                 console.log(err);

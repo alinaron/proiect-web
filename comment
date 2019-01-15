@@ -124,3 +124,47 @@ form {
             </form>
         </aside>
     </div>
+    
+    
+    <div className="App">
+        <header className="App-header">
+          <h1>Your movie manager</h1>
+        </header>
+        <Flexview/>
+        <Searchform/>
+      </div>
+      
+      
+      <form action="">
+                <button type="button" class="hbutton" id="buttonShows">TV Shows</button>
+                <button type="button" class="hbutton" id="buttonMovies">Movies</button>
+                <button type="button" class="hbutton" id="buttonGenres">Genres</button>
+                <button type="button" class="hbutton" id="buttonFavorites">Favorites</button>
+            </form>
+            
+            
+            addToFavorite(event) {
+        event.preventDefault()
+        var data = {
+            name: this.props.details.name,
+            poster_path: this.props.details.poster_path,
+            vote_average: this.props.details.vote_average
+        }
+        fetch("https://webtech-project-georgianaa.c9users.io/favorites", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }).then(function(response) {
+            if (response.status >= 400) {
+              throw new Error("Bad response from server");
+            }
+            return response.json();
+        }).then(function(data) { })
+        .catch(function(err) {
+            console.log(err)
+        });
+    }
+    
+     <Validation.components.Button onClick = {this.addToFavorite} method="POST">Add to favorites</Validation.components.Button>
+     
+     <Searchform />
